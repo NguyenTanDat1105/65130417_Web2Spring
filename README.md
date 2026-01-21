@@ -15,7 +15,7 @@ Homeword and Projects in Class
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 # Student Information
-Full name: Nguyen Tan Dat
-Birth: 11/05/2005
-Class: 65-CNTT.CLC
+Full name: Nguyen Tan Dat <br>
+Birth: 11/05/2005 <br>
+Class: 65-CNTT.CLC <br>
 School: Nha Trang University
