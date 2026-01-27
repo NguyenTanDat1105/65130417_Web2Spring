@@ -25,6 +25,8 @@ public class testDoGet extends HttpServlet {
         traVe.append("Giá trị tham số param1 = ");
 
         traVe.append(value1);
+        
+        traVe.append("<br>");
 
         traVe.append("Giá trị tham số param2 = ");
 
