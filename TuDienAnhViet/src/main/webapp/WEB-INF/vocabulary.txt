@@ -1,0 +1,104 @@
+Hello|Xin chào|Hello, how are you?
+Computer|Máy tính|I love my computer.
+School|Trường học|I go to school every day.
+Accommodate|Cung cấp chỗ ở, đáp ứng|The hotel can accommodate up to 500 guests.
+Adhere to|Tuân thủ|All staff must adhere to the safety regulations.
+Agenda|Chương trình nghị sự|The next item on the agenda is the budget.
+Ambitious|Tham vọng|He has an ambitious plan to expand the business.
+Approve|Phê duyệt|The manager approved the budget for the project.
+Asset|Tài sản|Good employees are a company's most valuable asset.
+Brief|Tóm tắt|The CEO gave a brief presentation about the merger.
+Collaboration|Sự hợp tác|The project was a collaboration between two teams.
+Commitment|Sự cam kết|We are looking for someone with a long-term commitment.
+Comply with|Tuân theo|Companies must comply with environmental laws.
+Conduct|Tiến hành|The firm will conduct a survey on customer habits.
+Consequence|Hậu quả|Failure to meet the deadline will have serious consequences.
+Consult|Tham vấn, hỏi ý kiến|You should consult a lawyer before signing the contract.
+Curriculum vitae|Sơ yếu lý lịch|Please send your curriculum vitae to our HR department.
+Deadline|Hạn chót|We are working hard to meet the deadline.
+Deficit|Sự thâm hụt|The company is facing a large budget deficit.
+Delegate|Ủy thác, giao việc|A good manager knows how to delegate tasks.
+Designate|Chỉ định|This area has been designated as a no-smoking zone.
+Discard|Loại bỏ|Please discard any outdated documents.
+Disrupt|Gián đoạn|The strike disrupted the city's transport system.
+Drastic|Quyết liệt|The company took drastic measures to reduce costs.
+Eligible|Đủ điều kiện|Only full-time employees are eligible for the bonus.
+Emphasize|Nhấn mạnh|The report emphasizes the importance of training.
+Evaluate|Đánh giá|We need to evaluate the success of the campaign.
+Exceed|Vượt quá|The results exceeded our expectations.
+Expedite|Xúc tiến, làm nhanh hơn|We need to expedite the shipping process.
+Fluctuate|Dao động|Oil prices tend to fluctuate throughout the year.
+Identify|Xác định|The system can identify potential security threats.
+Implement|Triển khai|The new policy will be implemented next month.
+Incentive|Sự khích lệ, ưu đãi|The company offers a financial incentive for early retirement.
+Innovation|Sự đổi mới|Innovation is the key to our company's success.
+Inventory|Hàng tồn kho|We need to do an inventory check this weekend.
+Mandatory|Bắt buộc|Attendance at the meeting is mandatory.
+Merger|Sự sáp nhập|The merger of the two banks was announced today.
+Negotiate|Thương lượng|We are trying to negotiate a better deal.
+Notify|Thông báo|Please notify us of any changes to your address.
+Objective|Mục tiêu|Our primary objective is to increase sales.
+Obstacle|Trở ngại|The lack of funding is a major obstacle to the project.
+Overlook|Bỏ qua, lờ đi|I think we overlooked one important detail.
+Participate|Tham gia|Everyone is encouraged to participate in the discussion.
+Priority|Sự ưu tiên|Customer service is our top priority.
+Productivity|Năng suất|Technology has greatly increased our productivity.
+Promote|Thăng chức, quảng bá|She was promoted to marketing manager last month.
+Prospective|Tiềm năng|We are meeting with prospective clients today.
+Quotation|Báo giá|Could you give me a quotation for this work?
+Recruit|Tuyển dụng|We are looking to recruit more experienced engineers.
+Refund|Hoàn tiền|If you are not satisfied, you can get a full refund.
+Regulation|Quy định|You must follow all safety regulations.
+Reliable|Đáng tin cậy|We need a reliable partner for this project.
+Terminate|Chấm dứt|The contract was terminated by mutual agreement.
+model|người mẫu|My mom is a professional fashion model
+Abstract|Bản tóm tắt, trừu tượng|Please submit an abstract of your proposal.
+Accumulate|Tích lũy|He has accumulated a lot of experience in sales.
+Anticipate|Dự đoán, mong đợi|We anticipate that prices will rise next year.
+Appraisal|Sự đánh giá, định giá|She is due for her annual performance appraisal.
+Aspirant|Người có khát vọng, ứng cử viên|The company is interviewing several aspirants for the job.
+Authorize|Ủy quyền, cho phép|Only the manager can authorize this payment.
+Bankruptcy|Sự phá sản|The company was forced into bankruptcy last month.
+Benchmark|Tiêu chuẩn, điểm chuẩn|This product is the benchmark for quality in the industry.
+Bid|Đấu thầu, trả giá|Several companies submitted a bid for the contract.
+Collaboration|Sự cộng tác|Success depends on the collaboration between departments.
+Compensate|Bồi thường, đền bù|The company will compensate you for your travel expenses.
+Consolidate|Củng cố, hợp nhất|We need to consolidate our position in the market.
+Contingency|Sự việc bất ngờ, dự phòng|We have a contingency plan in case of an emergency.
+Counterpart|Bên tương ứng, đối tác|The CEO met with his counterpart from the rival firm.
+Crucial|Cốt yếu, quyết định|Customer feedback is crucial for our improvement.
+Demographic|Nhân khẩu học|The product is targeted at a younger demographic.
+Depreciate|Khấu hao, giảm giá trị|New cars depreciate rapidly in the first year.
+Differentiate|Phân biệt|How do you differentiate your brand from competitors?
+Dimension|Kích thước, khía cạnh|We need to consider every dimension of the problem.
+Discrepancy|Sự khác biệt, không thống nhất|There is a discrepancy between the two reports.
+Durable|Bền bỉ|This material is highly durable and long-lasting.
+Endorse|Xác nhận, ủng hộ|The celebrity was paid to endorse the new product.
+Equivalent|Tương đương|The cost is equivalent to two months' salary.
+Exert|Nỗ lực, áp dụng|He had to exert all his influence to get the deal.
+Expertise|Sự thành thạo, tinh thông|She has considerable expertise in French law.
+Facilitate|Tạo điều kiện thuận lợi|The new software will facilitate better communication.
+Feasibility|Tính khả thi|We are conducting a feasibility study on the project.
+Fluctuation|Sự biến động|Market fluctuations affect our investment strategy.
+Gross|Tổng (chưa trừ thuế)|The company's gross profit increased by 10%.
+Incur|Gánh chịu (chi phí, nợ)|You will incur a penalty for late payment.
+Inflation|Sự lạm phát|High inflation reduces the purchasing power of money.
+Infrastructure|Cơ sở hạ tầng|The government is investing in new infrastructure.
+Initiative|Sáng kiến, sự khởi đầu|The employee showed great initiative in solving the issue.
+Integrate|Tích hợp, hòa nhập|The new system will integrate with our existing database.
+Liability|Nghĩa vụ pháp lý, khoản nợ|The company is trying to reduce its tax liabilities.
+Lucrative|Có lợi nhuận cao|Investing in real estate can be very lucrative.
+Maintain|Duy trì, bảo trì|It is important to maintain high standards of service.
+Marginal|Nhỏ, không đáng kể|There has been a marginal improvement in sales.
+Monopoly|Sự độc quyền|The government is trying to break up the monopoly.
+Objective|Mục tiêu|The main objective is to finish the project on time.
+Outsource|Thuê ngoài|The company decided to outsource its IT services.
+Paramount|Tối quan trọng|Safety is of paramount importance in this factory.
+Portfolio|Danh mục đầu tư, hồ sơ năng lực|She has an impressive portfolio of graphic designs.
+Precaution|Sự phòng ngừa|As a precaution, you should back up your files.
+Preliminary|Sơ bộ, mở đầu|We have reached a preliminary agreement.
+Prospectus|Tờ quảng cáo, cáo bạch|Read the prospectus carefully before investing.
+Quarterly|Hàng quý|The company releases its quarterly financial results.
+Reimburse|Hoàn lại tiền|The firm will reimburse you for your expenses.
+Restructuring|Cấu trúc lại|The bank is undergoing a major restructuring.
+Stringent|Nghiêm ngặt|The company has stringent quality control measures.
