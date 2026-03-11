@@ -37,7 +37,7 @@ public class HomeController {
 	
 	@GetMapping("/page/new")
 	public String createPage (ModelMap m) {
-		return "addpage";
+		return "addpage"; //addpage.html
 	}
 	@PostMapping("/page/new")
 	public String addPage(ModelMap m, HttpServletRequest h) {
