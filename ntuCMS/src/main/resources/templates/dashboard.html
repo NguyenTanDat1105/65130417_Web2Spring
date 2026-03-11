@@ -103,14 +103,91 @@
         }
 
         /* Content Area */
-        main {
-            background: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: #666;
-        }
+		main {
+		    padding: 30px;
+		    background: #e9ecef;
+		    overflow-y: auto; /* Cho phép cuộn nếu CV dài */
+		}
+		
+		/* Card chứa toàn bộ CV */
+		.cv-card {
+		    background: white;
+		    max-width: 800px;
+		    margin: 0 auto;
+		    padding: 40px;
+		    border-radius: 8px;
+		    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+		}
+		
+		/* Bố cục Header CV */
+		.cv-header-info {
+		    display: flex;
+		    align-items: center;
+		    gap: 30px;
+		    margin-bottom: 20px;
+		}
+		
+		.cv-photo img {
+		    width: 150px;
+		    height: 150px;
+		    border-radius: 50%; /* Làm ảnh hình tròn */
+		    object-fit: cover;
+		    border: 4px solid #0056b3;
+		}
+		
+		.cv-name-title h1 {
+		    color: #333;
+		    font-size: 28px;
+		    margin-bottom: 5px;
+		}
+		
+		.job-title {
+		    color: #0056b3;
+		    font-weight: bold;
+		    font-size: 18px;
+		}
+		
+		.contact-links {
+		    margin-top: 10px;
+		    font-size: 14px;
+		    color: #666;
+		}
+		
+		.cv-divider {
+		    margin: 25px 0;
+		    border: 0;
+		    border-top: 2px solid #eee;
+		}
+		
+		/* Chia cột cho CV */
+		.cv-body {
+		    display: grid;
+		    grid-template-columns: 1fr 1fr;
+		    gap: 40px;
+		    text-align: left;
+		}
+		
+		.cv-body h3 {
+		    color: #0056b3;
+		    font-size: 16px;
+		    margin-bottom: 10px;
+		    border-bottom: 2px solid #0056b3;
+		    display: inline-block;
+		}
+		
+		.cv-body section {
+		    margin-bottom: 25px;
+		}
+		
+		.cv-body p, .cv-body li {
+		    font-size: 14px;
+		    line-height: 1.6;
+		    color: #444;
+		}
+		
+		.cv-body ul {
+		    padding-left: 20px;
+		}
 
         /* Footer */
         footer {
@@ -151,8 +228,58 @@
         </aside>
 
         <main>
-            Content
-        </main>
+		    <div class="cv-card">
+		        <div class="cv-header-info">
+		            <div class="cv-photo">
+		                <img src="../images/anhdaidien.jpg" alt="Profile Picture">
+		            </div>
+		            <div class="cv-name-title">
+		                <h1>NGUYỄN TẤN ĐẠT</h1>
+		                <p class="job-title">Sinh viên Khoa 65.CNTT_CLC - Đại học Nha Trang</p>
+		                <div class="contact-links">
+		                    <span>📧 dat.nta.65cntt@ntu.edu.vn</span> | 
+		                    <span>📞 0325 706 974</span> | 
+		                    <span>📍 Nha Trang, Khánh Hòa</span>
+		                </div>
+		            </div>
+		        </div>
+		
+		        <hr class="cv-divider">
+		
+		        <div class="cv-body">
+		            <div class="cv-left-col">
+		                <section>
+		                    <h3>GIỚI THIỆU</h3>
+		                    <p>Tôi là sinh viên năm 3 đam mê lập trình Web và phát triển ứng dụng. Luôn tìm tòi những công nghệ mới để tối ưu hóa trải nghiệm người dùng.</p>
+		                </section>
+		                <section>
+		                    <h3>KỸ NĂNG</h3>
+		                    <ul>
+		                        <li>HTML5, CSS3, JavaScript</li>
+		                        <li>Java (JSP/Servlet)</li>
+		                        <li>SQL Server / MySQL</li>
+		                        <li>Thiết kế UI/UX cơ bản</li>
+		                    </ul>
+		                </section>
+		            </div>
+		
+		            <div class="cv-right-col">
+		                <section>
+		                    <h3>HỌC VẤN</h3>
+		                    <p><strong>Trường Đại học Nha Trang</strong><br>
+		                    Chuyên ngành: Công nghệ thông tin<br>
+		                    <em>2023 - Hiện tại</em></p>
+		                </section>
+		                <section>
+		                    <h3>DỰ ÁN CÁ NHÂN</h3>
+		                    <p><strong>Website Từ điển Toeic 600+</strong><br>
+		                    - Xây dựng bằng JSP/Servlet.<br>
+		                    - Lưu trữ dữ liệu bằng file .txt hệ thống.</p>
+		                </section>
+		            </div>
+		        </div>
+		    </div>
+		</main>
 
         <footer>
             ©2025 by Student Name – FIT.NTU
