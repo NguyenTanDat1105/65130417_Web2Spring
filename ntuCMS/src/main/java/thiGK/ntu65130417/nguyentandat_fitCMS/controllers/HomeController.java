@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import jakarta.servlet.http.HttpServletRequest;
 import thiGK.ntu65130417.nguyentandat_fitCMS.models.Page;
 import thiGK.ntu65130417.nguyentandat_fitCMS.models.Post;
 
@@ -32,5 +34,20 @@ public class HomeController {
 		m.addAttribute("listPage", dsTrang);
 		return "allpage"; //allpage.html
 	}
-	//Các action
+	
+	@GetMapping("/page/new")
+	public String createPage (ModelMap m) {
+		return "addpage";
+	}
+	@PostMapping("/page/new")
+	public String addPage(ModelMap m, HttpServletRequest h) {
+		String id = h.getParameter("id");
+		String pageName = h.getParameter("pName");
+		String keyword = h.getParameter("kword");
+		String content = h.getParameter("c");
+		String parentPageId = h.getParameter("pPageId");
+		dsTrang.add(new Page(id, pageName, keyword, content, parentPageId));
+		m.addAttribute("listPage", dsTrang);
+		return "allpage";
+	}
 }

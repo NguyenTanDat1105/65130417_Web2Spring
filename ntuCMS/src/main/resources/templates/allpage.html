@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Page - FIT.NTU</title>
+    <style>
+        /* Tận dụng lại CSS cũ của Dashboard và bổ sung CSS cho bảng */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        .wrapper { display: grid; grid-template-columns: 250px 1fr; grid-template-rows: auto 1fr auto; min-height: 100vh; }
+        
+        header { grid-column: 1 / span 2; display: flex; justify-content: space-between; align-items: center; 
+                 background: #fff; border-bottom: 2px solid #333; padding: 10px 20px; }
+        
+        aside { background: #fff; border-right: 2px solid #333; }
+        .sidebar-menu { list-style: none; }
+        .sidebar-menu li a { display: block; padding: 15px 20px; text-decoration: none; color: #333; border-bottom: 1px solid #ccc; }
+        .sidebar-menu li a:hover { background: #f0f0f0; }
+        
+        main { padding: 30px; background: #fff; }
+        
+        /* CSS cho Table theo đúng định dạng ảnh bạn gửi */
+        .table-page {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table-page th, .table-page td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+        .table-page th {
+            background-color: #f2f2f2;
+        }
+        .action-links a {
+            text-decoration: none;
+            color: #0056b3;
+            margin-right: 5px;
+        }
+        .action-links a:hover { text-decoration: underline; }
+
+        footer { grid-column: 1 / span 2; text-align: center; padding: 10px; border-top: 2px solid #333; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="border: 1px solid #333; padding: 5px; font-size: 10px;">LOGO<br>NTU</div>
+            <div>
+                <h2 style="font-size: 14px;">Trường Đại học Nha Trang</h2>
+                <p style="font-size: 11px; font-weight: bold;">KHOA CÔNG NGHỆ THÔNG TIN</p>
+            </div>
+        </div>
+        <div class="username">Nguyễn Tấn Đạt</div>
+    </header>
+
+    <aside>
+        <ul class="sidebar-menu">
+            <li><a th:href="@{/}">Dashboard</a></li>
+            <li style="background: #e9e9e9; font-weight: bold;"><a th:href="@{/page/all}">Page - List</a></li>
+            <li><a th:href="@{/page/addnew}">Page - Addnew</a></li>
+            <li><a href="#">Post - List</a></li>
+            <li><a href="#">Post - Addnew</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <h3 style="margin-bottom: 15px;">Danh sách các Page</h3>
+        
+        <table class="table-page">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">id</th>
+                    <th style="width: 40%;">Pagename</th>
+                    <th style="width: 20%;">parentPageId</th>
+                    <th style="width: 30%;">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="page : ${listPage}">
+                    <td th:text="${page.id}">1</td>
+                    <td th:text="${page.pageName}">Giới thiệu</td>
+                    <td th:text="${page.parentPageId}">0</td>
+                    <td class="action-links">
+                        <a th:href="@{/page/view/{id}(id=${page.id})}">[view]</a>
+                        <a th:href="@{/page/edit/{id}(id=${page.id})}">[edit]</a>
+                        <a th:href="@{/page/delete/{id}(id=${page.id})}" 
+                           onclick="return confirm('Bạn có chắc muốn xóa trang này?')">[delete]</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        ©2025 by Nguyễn Tấn Đạt – FIT.NTU
+    </footer>
+</div>
+
+</body>
+</html>
