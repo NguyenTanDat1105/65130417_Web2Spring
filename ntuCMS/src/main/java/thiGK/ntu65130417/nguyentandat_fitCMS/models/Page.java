@@ -14,6 +14,7 @@ public class Page {
 		this.content = content;
 		this.parentPageId = parentPageId;
 	}
+	public Page () {}
 	public String getId() {
 		return id;
 	}
