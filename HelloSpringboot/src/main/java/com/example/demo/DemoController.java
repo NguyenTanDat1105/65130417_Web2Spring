@@ -19,7 +19,6 @@ public class DemoController {
 		
 	}
 	
-	
 	//Lấy giá trị tại Controller
 	//Cách 1:
 	@GetMapping("/vd2")
