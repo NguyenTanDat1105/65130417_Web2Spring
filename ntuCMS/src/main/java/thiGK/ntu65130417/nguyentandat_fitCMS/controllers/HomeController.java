@@ -23,9 +23,9 @@ public class HomeController {
 	
 	//Hàm khởi tạo để tạo mới cho
 	public HomeController () {
-		dsTrang.add(new Page ("1","Giới thiệu", "intro", "Chào mừng đến với NTU", "0"));
-		dsTrang.add(new Page ("2", "Đào tạo", "train", "Thông tin đào tạo", "0"));
-		dsTrang.add(new Page ("3", "Khoa CNTT", "it", "Nội dung khoa CNTT", "2"));
+		dsTrang.add(new Page (1,"Giới thiệu", "intro", "Chào mừng đến với NTU", 0));
+		dsTrang.add(new Page (2, "Đào tạo", "train", "Thông tin đào tạo", 0));
+		dsTrang.add(new Page (3, "Khoa CNTT", "it", "Nội dung khoa CNTT", 2));
 		dsBaiViet.add(new Post("1", "Thông báo học vụ", "Nội dung thông báo...", "Tin tức"));
 	    dsBaiViet.add(new Post("2", "Kế hoạch thi GK", "Lịch thi chi tiết...", "Thông báo"));
 	    dsBaiViet.add(new Post("3", "Seminar CNTT", "Giới thiệu công nghệ mới...", "Sự kiện"));

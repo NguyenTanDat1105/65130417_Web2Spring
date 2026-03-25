@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class APIPageController {
 	ArrayList<Page> dsTrang = new ArrayList<Page> ();
 	public APIPageController () {
-		dsTrang.add(new Page ("1","Giới thiệu", "intro", "Chào mừng đến với NTU", "0"));
-		dsTrang.add(new Page ("2", "Đào tạo", "train", "Thông tin đào tạo", "0"));
-		dsTrang.add(new Page ("3", "Khoa CNTT", "it", "Nội dung khoa CNTT", "2"));
+		dsTrang.add(new Page (1,"Giới thiệu", "intro", "Chào mừng đến với NTU", 0));
+		dsTrang.add(new Page (2, "Đào tạo", "train", "Thông tin đào tạo", 0));
+		dsTrang.add(new Page (3, "Khoa CNTT", "it", "Nội dung khoa CNTT", 2));
 	}
 	@GetMapping("/api/Pages")
 	public ArrayList<Page> getAllPages() {
@@ -30,11 +30,11 @@ public class APIPageController {
 
 	@GetMapping("/api/oneObj")
 	public Page getOneObj() {
-		return new Page ("001", "GioiThieu", "từ khoá", "nội dung", "5");
+		return new Page (001, "GioiThieu", "từ khoá", "nội dung", 5);
 	}
 	
 	@GetMapping("/api/Pages/{id}")
-	public Page getPageId (@PathVariable String id) {
+	public Page getPageId (@PathVariable int id) {
 		for (Page p: dsTrang)
 			if ( p.getId()==id)
 				return p;
@@ -48,10 +48,10 @@ public class APIPageController {
 	}
 	
 	@PutMapping("api/Pages/update/{id}")
-	public boolean pageUpdate(@PathVariable("id") String id, @RequestBody Page entity) {
+	public boolean pageUpdate(@PathVariable("id") int id, @RequestBody Page entity) {
 		// Tìm page
 		for (Page p:dsTrang)
-			if (p.getId().equals(id))
+			if (p.getId() == id)
 			{
 				dsTrang.remove(p);
 				dsTrang.add(entity);
@@ -60,10 +60,10 @@ public class APIPageController {
 		return false;
 	}
 	@DeleteMapping("/api/Pages/delete/{id}")
-	public boolean pageDelete(@PathVariable("id") String id) {
+	public boolean pageDelete(@PathVariable("id") int id) {
 		// Tìm page
 		for (Page p:dsTrang)
-			if (p.getId().equals(id))
+			if (p.getId() == id)
 			{
 				Boolean kq =  dsTrang.remove(p);
 				return kq;
