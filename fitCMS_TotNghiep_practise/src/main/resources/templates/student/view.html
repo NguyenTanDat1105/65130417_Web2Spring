@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết Sinh viên</title>
+</head>
+<body>
+    <h2>Chi Tiết Sinh Viên</h2>
+    <hr>
+
+    <div th:if="${student != null}" style="font-size: 16px; line-height: 1.6;">
+        <p><strong>ID:</strong> <span th:text="${student.id}"></span></p>
+        <p><strong>Tên Sinh viên:</strong> <span th:text="${student.name}"></span></p>
+        <p><strong>Nhóm (Group ID):</strong> <span th:text="${student.groupId}"></span></p>
+    </div>
+
+    <div th:if="${student == null}">
+        <p style="color: red; font-weight: bold;">Lỗi: Không tìm thấy Sinh viên này!</p>
+    </div>
+
+    <br>
+    <a th:href="@{/student/all}">&laquo; Quay lại danh sách</a>
+</body>
+</html>

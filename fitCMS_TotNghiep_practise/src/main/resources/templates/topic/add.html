@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới Topic</title>
+    <style>
+        .form-group { margin-bottom: 10px; }
+        label { display: inline-block; width: 120px; font-weight: bold; }
+        input[type="text"], textarea { width: 250px; padding: 5px; }
+        .error-msg { color: red; font-weight: bold; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h2>Thêm Mới Topic</h2>
+
+    <div class="error-msg" th:if="${err != null}" th:text="${err}"></div>
+
+    <form th:action="@{/savetopic}" method="post">
+        <div class="form-group">
+            <label>ID:</label>
+            <input type="text" name="id" required placeholder="Ví dụ: T01">
+        </div>
+        
+        <div class="form-group">
+            <label>Topic Name:</label>
+            <input type="text" name="topicName" required placeholder="Nhập tên Topic">
+        </div>
+        
+        <div class="form-group">
+            <label>Description:</label>
+            <textarea name="topicDescription" rows="3" placeholder="Nhập mô tả chi tiết"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Supervisor ID:</label>
+            <input type="text" name="supervisorId" required placeholder="Ví dụ: GV01">
+        </div>
+        
+        <div class="form-group">
+            <label>Topic Type:</label>
+            <select name="topicType" style="padding: 5px; width: 264px;">
+                <option value="Đồ án Cơ sở">Đồ án Cơ sở</option>
+                <option value="Đồ án Chuyên ngành">Đồ án Chuyên ngành</option>
+                <option value="Đồ án Tốt nghiệp">Đồ án Tốt nghiệp</option>
+            </select>
+        </div>
+        
+        <div style="margin-top: 15px; padding-left: 125px;">
+            <button type="submit" style="padding: 5px 15px; background: #4CAF50; color: white; border: none; cursor: pointer;">Lưu</button>
+            <a th:href="@{/topic/all}"><button type="button" style="padding: 5px 15px;">Hủy</button></a>
+        </div>
+    </form>
+</body>
+</html>

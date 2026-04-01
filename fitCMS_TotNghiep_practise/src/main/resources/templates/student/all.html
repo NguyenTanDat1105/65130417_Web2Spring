@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Sinh viên</title>
+    <style>
+        table { width: 80%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btn-add { display: inline-block; margin-bottom: 10px; text-decoration: none; padding: 5px 10px; background-color: #4CAF50; color: white; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h2>Danh Sách Sinh Viên</h2>
+    
+    <a class="btn-add" th:href="@{/student/new}">+ Add new Student</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Group Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="s : ${students}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.groupId}"></td>
+                <td>
+                    <a th:href="@{/student/view/{id}(id=${s.id})}">[view]</a> | 
+                    <a href="#">[edit]</a> | 
+                    <a th:href="@{/student/delete/{id}(id=${s.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa Sinh viên này không?');">[delete]</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <br>
+    <a th:href="@{/dasdboard}">Quay lại Trang chủ</a>
+</body>
+</html>

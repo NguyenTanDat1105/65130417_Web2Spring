@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        /* Cài đặt chung */
+        body {
+            font-family: 'Times New Roman', serif; /* Font chữ giống báo cáo/đề thi */
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Khung bao ngoài cùng */
+        .wrapper {
+            width: 900px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            min-height: 500px;
+        }
+
+        /* Phần Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid black;
+            padding: 10px 20px;
+        }
+        
+        .header .logo {
+            font-size: 12px;
+            color: #d32f2f;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header .username {
+            font-weight: bold;
+        }
+
+        /* Phần Thân (Sidebar + Content) */
+        .main-body {
+            display: flex;
+            flex: 1; /* Cho phép giãn hết chiều cao còn lại */
+        }
+
+        /* Phần Sidebar (Menu trái) */
+        .sidebar {
+            width: 200px;
+            border-right: 1px solid black;
+            padding: 10px;
+        }
+
+        .sidebar table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sidebar td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+        
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Phần Content (Nội dung CV) */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5; /* Màu nền xám nhạt giống trong hình */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Phần Footer */
+        .footer {
+            border-top: 1px solid black;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                TRƯỜNG ĐẠI HỌC NHA TRANG<br>KHOA CÔNG NGHỆ THÔNG TIN
+            </div>
+            <div class="username">
+                NGUYENTANDAT
+            </div>
+        </div>
+
+        <div class="main-body">
+            <div class="sidebar">
+                <table>
+                    <tr>
+                        <td><strong><a th:href="@{/dasdboard}">Dasdboard</a></strong></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/topic/all}">Topic -List</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/topic/new}">Topic -Addnew</a></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 25px;"></td> </tr>
+                    <tr>
+                        <td><a th:href="@{/student/all}">Student - List</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/student/new}">Student - Adnew</a></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 25px;"></td> </tr>
+                </table>
+            </div>
+
+            <div class="content">
+                <h3>Content (CV của Sinh viên)</h3>
+                <div style="text-align: left; width: 100%; max-width: 400px;">
+                    <p><strong>Họ và tên:</strong> Nguyễn Tấn Đạt</p>
+                    <p><strong>Mã sinh viên:</strong> 65130417</p>
+                    <p><strong>Lớp:</strong> 65.CNTT-CLC</p>
+                    <p><strong>Kỹ năng:</strong> Java, Spring Boot, HTML/CSS</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            ©2026 by Nguyen Tan Dat – FIT.NTU
+        </div>
+    </div>
+
+</body>
+</html>

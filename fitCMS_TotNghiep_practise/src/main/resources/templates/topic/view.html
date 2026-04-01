@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết Topic</title>
+</head>
+<body>
+    <h2>Chi Tiết Topic</h2>
+    <hr>
+
+    <div th:if="${topic != null}" style="font-size: 16px; line-height: 1.6;">
+        <p><strong>ID:</strong> <span th:text="${topic.id}"></span></p>
+        <p><strong>Tên Topic:</strong> <span th:text="${topic.topicName}"></span></p>
+        <p><strong>Mô tả:</strong> <span th:text="${topic.topicDescription}"></span></p>
+        <p><strong>Mã Giảng viên (Supervisor ID):</strong> <span th:text="${topic.supervisorId}"></span></p>
+        <p><strong>Loại Topic:</strong> <span th:text="${topic.topicType}"></span></p>
+    </div>
+
+    <div th:if="${topic == null}">
+        <p style="color: red; font-weight: bold;">Lỗi: Không tìm thấy Topic này trong hệ thống!</p>
+    </div>
+
+    <br>
+    <a th:href="@{/topic/all}">&laquo; Quay lại danh sách</a>
+</body>
+</html>
