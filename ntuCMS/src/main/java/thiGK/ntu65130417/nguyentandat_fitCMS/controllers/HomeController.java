@@ -51,7 +51,7 @@ public class HomeController {
 		String keyword = h.getParameter("kword");
 		String content = h.getParameter("c");
 		String parentPageId = h.getParameter("pPageId");
-		dsTrang.add(new Page(id, pageName, keyword, content, parentPageId));
+		dsTrang.add(new Page ());
 		m.addAttribute("listPage", dsTrang);
 		return "allpage";
 	}
