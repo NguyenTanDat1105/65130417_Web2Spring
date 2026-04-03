@@ -1,18 +1,37 @@
 package dat.ntu.SessionwithSpringSecurity.Controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
 
-    @GetMapping("/home")
-    public String home() {
-        return "home"; // Trả về giao diện home.html
-    }
+	 @GetMapping("/")
+	    public String home(ModelMap m) {
+	        // Obtain the SecurityContext
+	        SecurityContext context = SecurityContextHolder.getContext();
+	        // Obtain the Authentication object from the context
+	        Authentication authentication = context.getAuthentication();
+//	      Principal u = authentication;
+	        m.addAttribute("au", authentication.getName() );
+	        return "home";
+	    }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login"; // Trả về giao diện login.html
-    }
+	    @GetMapping("/chao")
+	    public String chao(Authentication authentication, ModelMap m) {
+	        m.addAttribute("au", authentication.getName() );
+	        return "home";
+	    }
+
+	    @GetMapping("/home")
+	    public String home1(Authentication authentication, ModelMap m) {
+	        if (authentication != null) {
+	            m.addAttribute("au", authentication.getName());
+	        }
+	        return "home";
+	    }
 }

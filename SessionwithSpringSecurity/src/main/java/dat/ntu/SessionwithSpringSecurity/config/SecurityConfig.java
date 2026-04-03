@@ -17,9 +17,9 @@ public class SecurityConfig {
                 .anyRequest().authenticated() // Yêu cầu đăng nhập để truy cập mọi trang
             )
             .formLogin(form -> form
-                .loginPage("/login").permitAll() // Sử dụng trang login tùy chỉnh
-                .defaultSuccessUrl("/home", true)
-            )
+            		.permitAll()
+            		.defaultSuccessUrl("/home", true))
+
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")
             )
