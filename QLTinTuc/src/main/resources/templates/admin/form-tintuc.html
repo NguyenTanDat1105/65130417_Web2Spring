@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Tin tức</title>
+</head>
+<body>
+    <h1 th:text="${tintuc.id == null ? 'THÊM TIN MỚI' : 'CẬP NHẬT TIN TỨC'}"></h1>
+    <form th:action="@{/admin/tintuc/save}" th:object="${tintuc}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <div>
+            <label>Tiêu đề:</label><br>
+            <input type="text" th:field="*{tieuDe}" required style="width: 400px;">
+        </div>
+        <br>
+        <div>
+            <label>Loại tin:</label><br>
+            <select th:field="*{loaiTin}" required>
+                <option value="">-- Chọn loại tin --</option>
+                <option th:each="loai : ${listLoaiTin}" 
+                        th:value="${loai.id}" 
+                        th:text="${loai.tenLoai}"></option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label>Nội dung:</label><br>
+            <textarea th:field="*{noiDung}" rows="5" style="width: 400px;"></textarea>
+        </div>
+        <br>
+        <button type="submit" style="background: blue; color: white; padding: 10px 20px;">Lưu lại</button>
+        <a th:href="@{/admin/tintuc}">Hủy bỏ</a>
+    </form>
+</body>
+</html>

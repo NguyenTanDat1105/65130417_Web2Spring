@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Tin Tức</title>
+    <style>
+        body { margin: 0; font-family: Arial; }
+        .header { display: flex; justify-content: space-between; border: 1px solid black; padding: 5px; align-items: center; }
+        .main-container { display: flex; min-height: 500px; }
+        .sidebar { width: 25%; border: 1px solid black; border-top: none; }
+        .content { width: 75%; border: 1px solid black; border-top: none; border-left: none; padding: 20px; text-align: center; }
+        .footer { border: 1px solid black; border-top: none; text-align: center; padding: 5px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; }
+        .menu-table { width: 100%; border-collapse: collapse; }
+        .menu-table td { border: 1px solid black; padding: 5px; }
+        .menu-header { font-weight: bold; background: #eee; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="https://ntu.edu.vn/Portals/0/logo%20NTU%20Small.png" height="40" style="margin-right: 10px;">
+            <span style="font-size: 12px; font-weight: bold; color: red;">KHOA CÔNG NGHỆ THÔNG TIN</span>
+        </div>
+        <div>[UserName]</div>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <table class="menu-table">
+                <tr><td class="menu-header">Dasdboard</td></tr>
+                <tr><td><a th:href="@{/admin/tintuc}">Topic - List</a></td></tr>
+                <tr><td><a th:href="@{/admin/tintuc/add}">Topic - Addnew</a></td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>Student - List</td></tr>
+                <tr><td>Student - Adnew</td></tr>
+            </table>
+        </div>
+        <div class="content">
+            <h2>Content - Danh sách tin tức</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiêu đề</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="tin : ${listTin}">
+                        <td th:text="${tin.id}"></td>
+                        <td th:text="${tin.tieuDe}"></td>
+                        <td><a th:href="@{/tin-tuc/{id}(id=${tin.id})}">Xem</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        ©2025 by Student Name - FIT.NTU
+    </div>
+
+</body>
+</html>

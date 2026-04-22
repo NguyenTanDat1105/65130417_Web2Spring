@@ -1,0 +1,13 @@
+package dat.ntu.QLTinTuc;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class QlTinTucApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(QlTinTucApplication.class, args);
+	}
+
+}

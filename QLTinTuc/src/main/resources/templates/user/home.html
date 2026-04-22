@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cổng Thông Tin - NTU News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --ntu-blue: #004a8f;
+            --ntu-gold: #ffc107;
+        }
+        
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', Roboto, sans-serif; }
+        
+        /* Navbar tùy chỉnh */
+        .navbar-ntu {
+            background-color: var(--ntu-blue);
+            border-bottom: 4px solid var(--ntu-gold);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://ntu.edu.vn/Portals/0/Images/Slide/Slide-01.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        /* News Card */
+        .news-card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            height: 100%;
+        }
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .card-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: var(--ntu-blue);
+            letter-spacing: 1px;
+        }
+        .card-title a {
+            text-decoration: none;
+            color: #222;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: var(--ntu-blue);
+        }
+        
+        .footer-ntu {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ntu sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/}">
+                <img src="https://ntu.edu.vn/Portals/0/logo%20NTU%20Small.png" width="40" class="me-2 bg-white rounded-circle p-1">
+                <span class="fw-bold">NTU NEWS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/}">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Chuyên mục</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/admin/tintuc}">Quản trị</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Tin Tức Đại Học Nha Trang</h1>
+            <p class="lead">Cập nhật những thông tin mới nhất về đào tạo, nghiên cứu và hoạt động sinh viên.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4 border-start border-4 border-warning ps-3">
+            <h2 class="fw-bold mb-0">BÁO MỚI TRONG NGÀY</h2>
+            <a href="#" class="text-decoration-none text-muted small">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" th:each="tin : ${listTin}">
+                <article class="card news-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x220" class="card-img-top" alt="news image">
+                    
+                    <div class="card-body">
+                        <div class="card-category mb-2">
+                            <i class="fas fa-tag me-1"></i>
+                            <span th:text="${tin.loaiTin != null ? tin.loaiTin.tenLoai : 'Sự kiện'}">Loại tin</span>
+                        </div>
+                        <h5 class="card-title fw-bold">
+                            <a th:href="@{/tin-tuc/{id}(id=${tin.id})}" th:text="${tin.tieuDe}">Tiêu đề bài viết</a>
+                        </h5>
+                        <p class="card-text text-muted small">
+                            <span th:text="${#strings.abbreviate(tin.noiDung, 100)}">Tóm tắt nội dung bài viết...</span>
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a th:href="@{/tin-tuc/{id}(id=${tin.id})}" class="btn btn-outline-primary btn-sm w-100 rounded-pill">
+                            Đọc tiếp
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 text-center py-5" th:if="${#lists.isEmpty(listTin)}">
+                <i class="far fa-newspaper fa-4x text-light mb-3"></i>
+                <p class="text-muted">Hiện tại chưa có bản tin nào mới.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-ntu">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="https://ntu.edu.vn/Portals/0/logo%20NTU%20Small.png" width="50" class="mb-3 bg-white rounded-circle p-1">
+                    <h5 class="text-white">KHOA CÔNG NGHỆ THÔNG TIN - ĐẠI HỌC NHA TRANG</h5>
+                    <p class="small">Số 02 Nguyễn Đình Chiểu, Nha Trang, Khánh Hòa</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fas fa-globe fa-lg"></i></a>
+                    </div>
+                    <hr class="mt-4 bg-secondary">
+                    <p class="mb-0 x-small text-secondary">© 2026 Designed by NTU Students</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

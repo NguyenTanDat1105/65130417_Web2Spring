@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hệ thống Quản lý Tin Tức - NTU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #003366; /* Màu xanh đậm NTU */
+            --accent-color: #ffcc00;  /* Màu vàng nhấn */
+            --bg-light: #f8f9fa;
+        }
+        
+        body { background-color: var(--bg-light); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* Sidebar Styling */
+        .sidebar {
+            min-width: 280px;
+            max-width: 280px;
+            background: var(--primary-color);
+            color: white;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+        .sidebar .nav-link {
+            color: rgba(255,255,255,0.8);
+            padding: 15px 20px;
+            border-radius: 0;
+            border-left: 4px solid transparent;
+        }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        /* Navbar Header Styling */
+        .navbar {
+            background: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Card & Table Styling */
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .table thead {
+            background-color: #f1f4f8;
+        }
+        .btn-action {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin: 0 2px;
+        }
+        
+        .footer {
+            background: white;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="d-flex">
+    <nav class="sidebar shadow">
+        <div class="p-4 text-center">
+            <img src="https://ntu.edu.vn/Portals/0/logo%20NTU%20Small.png" width="70" class="mb-2">
+            <h6 class="fw-bold">HỆ THỐNG QUẢN TRỊ</h6>
+            <hr class="text-white-50">
+        </div>
+        <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+                <a th:href="@{/admin/tintuc}" class="nav-link active">
+                    <i class="fa-solid fa-list-check me-2"></i> Quản lý Tin tức
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/admin/tintuc/add}" class="nav-link">
+                    <i class="fa-solid fa-plus-circle me-2"></i> Thêm tin mới
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <small class="px-4 text-white-50 text-uppercase">Sinh viên</small>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-users me-2"></i> Danh sách SV</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-user-plus me-2"></i> Thêm mới SV</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="w-100 d-flex flex-column">
+        <nav class="navbar navbar-expand-lg navbar-light px-4">
+            <div class="container-fluid">
+                <span class="navbar-brand fw-bold text-primary">DASHBOARD</span>
+                <div class="d-flex align-items-center">
+                    <span class="me-3 text-muted small">Chào, <strong>Admin</strong></span>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=random" class="rounded-circle" width="35">
+                </div>
+            </div>
+        </nav>
+
+        <main class="p-4 flex-grow-1">
+            <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h4 class="h4 mb-0 text-gray-800">Danh sách Tin tức</h4>
+                    <a th:href="@{/admin/tintuc/add}" class="btn btn-primary shadow-sm px-4">
+                        <i class="fas fa-plus fa-sm text-white-50 me-2"></i> Thêm tin mới
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="ps-4">ID</th>
+                                        <th>Tiêu đề bài viết</th>
+                                        <th>Loại tin</th>
+                                        <th class="text-center">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="tin : ${listTin}">
+                                        <td class="ps-4 fw-bold" th:text="${tin.id}">1</td>
+                                        <td th:text="${tin.tieuDe}">Tiêu đề mẫu bài viết</td>
+                                        <td>
+                                            <span class="badge bg-info text-dark px-3" 
+                                                  th:text="${tin.loaiTin != null ? tin.loaiTin.tenLoai : 'N/A'}">Thời sự</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/admin/tintuc/edit/{id}(id=${tin.id})}" 
+                                               class="btn btn-warning btn-action text-white shadow-sm" title="Sửa">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <a th:href="@{/admin/tintuc/delete/{id}(id=${tin.id})}" 
+                                               class="btn btn-danger btn-action shadow-sm" 
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa tin này?')" title="Xóa">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr th:if="${#lists.isEmpty(listTin)}">
+                                        <td colspan="4" class="text-center py-5 text-muted">
+                                            <i class="fa-solid fa-folder-open fa-3x mb-3 d-block"></i>
+                                            Chưa có dữ liệu nào được tạo.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer text-center mt-auto">
+            <div class="container">
+                <span class="text-muted">©2026 <strong>KHOA CNTT - ĐẠI HỌC NHA TRANG</strong>. Phát triển bởi Sinh viên NTU.</span>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
