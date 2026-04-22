@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Sản phẩm</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9fafb; color: #333; line-height: 1.6; margin: 0; padding: 0; }
+        .article-container { max-width: 800px; margin: 40px auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+        .btn-back { display: inline-block; margin-bottom: 20px; color: #4f46e5; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.3s; }
+        .btn-back:hover { color: #3730a3; text-decoration: underline; }
+        .article-header { border-bottom: 1px solid #e5e7eb; padding-bottom: 20px; margin-bottom: 30px; }
+        .article-title { font-size: 2.5em; font-weight: 700; color: #111827; margin: 0 0 10px 0; line-height: 1.2; }
+        .product-price { font-size: 1.8em; color: #e63946; font-weight: bold; margin-bottom: 15px; }
+        .article-meta { font-size: 0.95em; color: #6b7280; display: flex; align-items: center; gap: 15px; }
+        .meta-item { background-color: #f3f4f6; padding: 6px 15px; border-radius: 20px; }
+        .meta-label { font-weight: 600; color: #4b5563; }
+        .article-content { font-size: 1.125rem; color: #374151; white-space: pre-wrap; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #4f46e5; }
+        .section-title { font-size: 1.2em; font-weight: bold; color: #111827; margin-bottom: 10px; }
+    </style>
 </head>
 <body>
+
+    <div class="article-container">
+        <a th:href="@{/home}" class="btn-back">&larr; Quay lại trang chủ</a>
+
+        <article>
+            <header class="article-header">
+                <h1 class="article-title" th:text="${page.tenSp}">Tên sản phẩm</h1>
+                
+                <div class="product-price" th:text="${#numbers.formatDecimal(page.gia, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">
+                    10,000,000 VNĐ
+                </div>
+                
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <span class="meta-label">Mã SP: </span> 
+                        <span th:text="'SP0' + ${page.id}">SP01</span>
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-label">Danh mục: </span> 
+                        <span th:text="${page.loaiSanPham != null ? page.loaiSanPham.tenLoai : 'Không có'}">Điện thoại</span>
+                    </span>
+                </div>
+            </header>
+
+            <div>
+                <div class="section-title">Mô tả chi tiết sản phẩm</div>
+                <div class="article-content" th:text="${page.moTa}">
+                    Nội dung chi tiết của sản phẩm...
+                </div>
+            </div>
+        </article>
+    </div>
 
 </body>
 </html>
