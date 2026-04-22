@@ -21,11 +21,11 @@ public class LoaiSanPhamService {
 		return loaiSanPhamRepository.getReferenceById(id);
 	}
 	
-	public void saveSanPham(LoaiSanPham sanpham) {
+	public void saveLoaiSanPham(LoaiSanPham sanpham) {
 		loaiSanPhamRepository.save(sanpham);
 	}
 	
-	public void deleteSanPham (int id) {
+	public void deleteLoaiSanPham (int id) {
 		for (LoaiSanPham sp : loaiSanPhamRepository.findAll()) {
 			if (sp.getId() == id) loaiSanPhamRepository.delete(sp);
 		}
