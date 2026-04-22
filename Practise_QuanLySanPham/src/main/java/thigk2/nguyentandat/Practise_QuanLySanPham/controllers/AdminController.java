@@ -17,6 +17,7 @@ import thigk2.nguyentandat.Practise_QuanLySanPham.services.SanPhamService;
 public class AdminController {
 	@Autowired
 	SanPhamService sanPhamService;
+	@Autowired
 	LoaiSanPhamService loaiSanPhamService;
 	
 	@GetMapping("/admin")

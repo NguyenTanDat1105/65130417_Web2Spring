@@ -3,6 +3,8 @@ package thigk2.nguyentandat.Practise_QuanLySanPham.models;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "loai_san_pham")
 public class LoaiSanPham {
@@ -14,6 +16,7 @@ public class LoaiSanPham {
     private String tenLoai;
 
     @OneToMany(mappedBy = "loaiSanPham")
+    @JsonIgnore
     private List<SanPham> listSanPham;
     
     

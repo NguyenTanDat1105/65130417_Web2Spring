@@ -15,6 +15,7 @@ import thigk2.nguyentandat.Practise_QuanLySanPham.services.SanPhamService;
 public class RController {
 	@Autowired
 	SanPhamService sanPhamService;
+	@Autowired
 	LoaiSanPhamService loaiSanPhamService;
 	
 	@GetMapping("/testAPISanPham")
