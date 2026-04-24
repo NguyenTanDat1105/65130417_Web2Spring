@@ -1,5 +1,7 @@
 package thigk2.nguyentandat.quanlysanpham.repositories;
 
-public class SPRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-}
+import thigk2.nguyentandat.quanlysanpham.models.SP;
+
+public interface SPRepository extends JpaRepository<SP, Integer> {}
